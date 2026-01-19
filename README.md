@@ -1,4 +1,4 @@
-#Smart door based on a raspberry pi zero2W
+#Pi_Door
 Ths project is a smart door lock created using a raspberry pi zero 2w. This is the cheapest raspberry pi capable of running what i want this project needs.
 The door is capable of Face ID, Palm vein recognition, fingerprint and has a 4x4 keypad entry as well. QR codes can be generated for one time use to open the door as well.
 It uses high-end secure biometric components in order to keep it reliable and safe. There is a live camera feed as well that would be transmitted from the camera to the local raspberry pi server.
