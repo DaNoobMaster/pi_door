@@ -1,0 +1,19 @@
+Item,Description,Quantity,Unit Price ( ? ) ,Total Price ( ? ),URL,Running Total After Discounts & Tax
+Solenoid ( to lock ),Solenoid to push my door lock,1,? 800.00,? 800.00,Buy DC 12V 25N 10mm Push Pull Solenoid Electromagnet Online at Robu.in,? 800.00
+Face ID & Palm Vein sensor,"high-performance biometric module offering Face Recognition, Palm Vein Detection, and QR Code Scanning",1,"? 5,636.00","? 5,636.00",Offline AI Binocular 3D Vision recognition Sensor – DFRobot,"? 5,636.00"
+Fingerprint Sensor,Highly secure optical fingerprint sensor,1,"? 2,042.00","? 2,042.00","Buy Waveshare Round-Shaped All-In-One Capacitive Fingerprint Sensor (D), Cortex Processor, 360° Verification","? 2,042.00"
+Raspberry Pi Zero 2W,Used to interface between all components and create a web server to watch the video feed,1,"? 1,345.00","? 1,345.00",Raspberry Pi Zero 2W – e2uonline,"? 1,587.10"
+18650 Battery,A high capacity Li-Ion battery @ 3000mAh & 3.7V,2,? 62.00,? 124.00,18650 Li-ion 3.7V 3000mAh Rechargeable Battery - Copy – QuartzComponents,? 205.32
+Battery Charger,Battery charging module for the Li-Ion Batteries,1,? 14.00,? 14.00,Buy TP4056 1A Li-ion Charging Module With Current Protection,? 14.00
+Battery Holder,2 18650 cells battery holder,1,? 46.00,? 46.00,Buy 2 X 18650 Black Battery Holder with DC Power Plug Online at Robu.in,? 46.00
+UART Convertor,To use more than 1 UART device,1,? 279.00,? 279.00,CP2102 USB to TTL USB UART Serial Converter Module : Amazon.in: Computers & Accessories,? 300.00
+USB to MicroUSB,To use on raspberry pi zero2,1,? 79.00,? 79.00,Buy High Speed Micro USB OTG Cable 33 cm Online in India - Robocraze,? 54.00
+Barrel Jack Connector,Barrel Jack Connectors to minimise error due to loose connection of flimsy wires,1,? 23.00,? 23.00,Buy Male + Female 2.1*5.5mm for DC Power Jack Adapter Connector Plug,? 23.00
+4x3 keypad,To manually enter pincode,1,? 188.00,? 188.00,Buy 4x3 12-key Keyboard / Keypad Telephone Style – Black Online at Robu.in,? 188.00
+BC107 transistor,To power relay using IO signal,1,? 24.00,? 24.00,BC107 NPN General Purpose Transistor Metal can package – Robocraze,? 19.00
+3D print,The main housing for the build,1,,,,
+Acrylic Sheet,Transparent sheet for camera,1,? 75.00,? 75.00,Get the Best Price Laser Cutting Service Online in INDIA,? 75.00
+SRD-05VDC-SL-A,Relay to control solenoid lock,1,? 79.00,79,Buy Now SRD-05VDC-SL-A at Best Price,? 79.00
+PCB,PCB to connect all parts together,1,,,,
+3D Print,Chassis in which everything will lie,,,,,
+Total Cost : ,,,,,,"? 11,068.42"
