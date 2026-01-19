@@ -14,8 +14,8 @@ BOM
 
 | S.No | Component | Purpose | Estimated Cost (₹) |
 |-----:|-----------|---------|-------------------:|
-| 1 | Solenoid (Door Lock) | Physically locks/unlocks the door | 2,042.00 |
-| 2 | Face ID & Palm Vein Sensor | Primary biometric authentication | 2,042.00 |
+| 1 | Solenoid (Door Lock) | Physically locks/unlocks the door | 800 |
+| 2 | Face ID & Palm Vein Sensor | Primary biometric authentication | 5636 |
 | 3 | Fingerprint Sensor | Secondary authentication | 2,042.00 |
 | 4 | Raspberry Pi Zero 2 W | Main controller & processing unit | 1,587.10 |
 | 5 | 18650 Battery | Portable power source | 205.32 |
