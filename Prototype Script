@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import time
+import serial
+
+# =========================================================
+# =============== FINGERPRINT (WAVESHARE) =================
+# =========================================================
+
+ACK_SUCCESS = 0x00
+ACK_FAIL    = 0x01
+ACK_FULL    = 0x04
+ACK_NO_USER = 0x05
+ACK_TIMEOUT = 0x08
+
+CMD_HEAD    = 0xF5
+CMD_TAIL    = 0xF5
+
+CMD_ADD_1   = 0x01
+CMD_ADD_3   = 0x03
+CMD_MATCH   = 0x0C
+CMD_USER_CNT= 0x09
+
+USER_MAX_CNT = 1000
+
+fp_ser = serial.Serial("/dev/ttyUSB0", 19200, timeout=1)
+fp_rx_buf = []
+
+
+def fp_txrx(cmd, rx_len, timeout):
+    global fp_rx_buf
+    checksum = 0
+    packet = [CMD_HEAD]
+
+    for b in cmd:
+        packet.append(b)
+        checksum ^= b
+
+    packet.append(checksum)
+    packet.append(CMD_TAIL)
+
+    fp_ser.flushInput()
+    fp_ser.write(bytes(packet))
+
+    fp_rx_buf = []
+    start = time.time()
+
+    while time.time() - start < timeout and len(fp_rx_buf) < rx_len:
+        if fp_ser.in_waiting:
+            fp_rx_buf += list(fp_ser.read(fp_ser.in_waiting))
+
+    if len(fp_rx_buf) != rx_len:
+        return ACK_TIMEOUT
+
+    if fp_rx_buf[0] != CMD_HEAD or fp_rx_buf[-1] != CMD_TAIL:
+        return ACK_FAIL
+
+    return ACK_SUCCESS
+
+
+def fp_get_user_count():
+    cmd = [CMD_USER_CNT, 0, 0, 0, 0]
+    r = fp_txrx(cmd, 8, 0.2)
+    if r == ACK_SUCCESS and fp_rx_buf[4] == ACK_SUCCESS:
+        return fp_rx_buf[3]
+    return -1
+
+
+def register_fingerprint() -> bool:
+    print("Place finger to REGISTER...")
+    time.sleep(1)
+
+    count = fp_get_user_count()
+    if count < 0 or count >= USER_MAX_CNT:
+        return False
+
+    cmd = [CMD_ADD_1, 0, count + 1, 3, 0]
+    r = fp_txrx(cmd, 8, 6)
+
+    if r == ACK_SUCCESS and fp_rx_buf[4] == ACK_SUCCESS:
+        cmd[0] = CMD_ADD_3
+        r = fp_txrx(cmd, 8, 6)
+        return r == ACK_SUCCESS and fp_rx_buf[4] == ACK_SUCCESS
+
+    return False
+
+
+def check_fingerprint() -> bool:
+    print("Checking FINGERPRINT...")
+    time.sleep(1)
+
+    cmd = [CMD_MATCH, 0, 0, 0, 0]
+    r = fp_txrx(cmd, 8, 5)
+
+    if r != ACK_SUCCESS:
+        return False
+
+    return fp_rx_buf[4] != ACK_NO_USER
+
+
+# =========================================================
+# ================= AI10 CAMERA (FACE/PALM) ================
+# =========================================================
+
+from DFRobot_AI10 import DFRobot_AI10_UART
+
+ai10 = DFRobot_AI10_UART(115200)
+ai10.begin()
+
+
+def register_biometric(user_name="User", admin=False, timeout=10) -> bool:
+    """
+    Register FACE or PALM automatically
+    """
+    print("Present FACE or PALM to REGISTER...")
+    time.sleep(1)
+
+    result = ai10.enroll_user(
+        admin=ai10.ADMIN if admin else ai10.NORMAL,
+        user_name=user_name,
+        timeout=timeout
+    )
+
+    if result.result == ai10.Success:
+        return True
+
+    return False
+
+
+def check_biometric(timeout=5) -> bool:
+    """
+    Check FACE or PALM
+    """
+    print("Checking FACE or PALM...")
+    data = ai10.get_recognition_result(timeout)
+
+    if data.result == ai10.Success:
+        return True
+
+    return False
