@@ -15,6 +15,48 @@ The fingerprint sensor has a
 
 <img width="1467" height="838" alt="image" src="https://github.com/user-attachments/assets/89ca3128-0ba1-494d-8a13-542e06ba3c86" />
 
+### Complete Hardware Wiring (As per Schematic)
+
+| Subsystem | Device Pin / Signal | Connected To | Raspberry Pi Pin | GPIO / Voltage | Notes |
+|----------|---------------------|--------------|------------------|----------------|-------|
+| **Controller** | 3.3V | Power Rail | Pin 1 | 3.3V | Logic power |
+| Controller | 5V | Power Rail | Pin 4 | 5V | Camera + relay |
+| Controller | GND | Common Ground | Pin 6 | GND | Shared ground |
+
+| **AI Camera (Face / Palm)** | VCC | Pi 5V | Pin 4 | 5V | Camera power |
+| AI Camera | GND | Pi GND | Pin 6 | GND | Common ground |
+| AI Camera | UART_TX | Pi RX | Pin 10 | GPIO15 (RXD) | Camera → Pi |
+| AI Camera | UART_RX | Pi TX | Pin 8 | GPIO14 (TXD) | Pi → Camera |
+
+| **Fingerprint Sensor (via CP2102)** | VIN | CP2102 3V3 | — | 3.3V | Sensor power |
+| Fingerprint | GND | CP2102 GND | — | GND | Common ground |
+| Fingerprint | RX | CP2102 TXD | — | UART TX |
+| Fingerprint | TX | CP2102 RXI | — | UART RX |
+| Fingerprint | RST | CP2102 DTR | — | Reset |
+| CP2102 | USB | Raspberry Pi | USB | — | USB-UART |
+
+| **3×4 Keypad** | K1 (Row 1) | Pi GPIO | Pin 29 | GPIO5 | Output |
+| Keypad | K2 (Row 2) | Pi GPIO | Pin 31 | GPIO6 | Output |
+| Keypad | K3 (Row 3) | Pi GPIO | Pin 33 | GPIO13 | Output |
+| Keypad | K4 (Row 4) | Pi GPIO | Pin 35 | GPIO19 | Output |
+| Keypad | K5 (Col 1) | Pi GPIO | Pin 37 | GPIO26 | Input (PU) |
+| Keypad | K6 (Col 2) | Pi GPIO | Pin 38 | GPIO20 | Input (PU) |
+| Keypad | K7 (Col 3) | Pi GPIO | Pin 40 | GPIO21 | Input (PU) |
+| Keypad | K8 | — | — | NC | Not connected |
+| Keypad | K9 | — | — | NC | Not connected |
+
+| **Relay Control** | Relay IN | Pi GPIO | Pin 16 | GPIO23 | Control signal |
+| Relay | Relay VCC | Pi 5V | Pin 4 | 5V | Coil power |
+| Relay | Relay GND | Pi GND | Pin 6 | GND | Ground |
+
+| **Transistor (BC107)** | Base | Pi GPIO (via resistor) | Pin 16 | GPIO23 | Drives relay |
+| Transistor | Collector | Relay Coil | — | — | Load side |
+| Transistor | Emitter | Ground | — | GND | Reference |
+
+| **Solenoid Lock** | + | External Supply | — | +7.5V | Lock power |
+| Solenoid | − | Relay NO Contact | — | Switched | Controlled by relay |
+
+
 
 ### Authentication Accuracy & Error Rates
 
