@@ -6,6 +6,12 @@ It uses high-end secure biometric components in order to keep it reliable and sa
 The aim of this project is to make entering my house quicker and more reliable. Due to the fact that its mostly digital, it is less susceptible to intruder attacks and can help catch intruders if an attack does occur. The live camera feed is also helpful in checking who is at your at door. I belive this project would use my skills to the most. Its mechanical and software aspect is perfect for me to improve my skills and learn how to work with such types of hardware.
 
 
+The 4x3 keypad can be used to enter in a pincode.
+The pincode can be set to be however long.
+Pressing # enters the code while * resets it. If no user input is present for 10 seconds, the code entry cache resets. If the door unlocks using other means, the code entry cache resets.
+The fingerprint sensor has a 
+
+
 
 <img width="1467" height="838" alt="image" src="https://github.com/user-attachments/assets/89ca3128-0ba1-494d-8a13-542e06ba3c86" />
 
