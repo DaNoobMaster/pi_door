@@ -7,7 +7,8 @@ The aim of this project is to make entering my house quicker and more reliable. 
 
 
 
-<img width="1197" height="828" alt="image" src="https://github.com/user-attachments/assets/38d62162-9e09-4fb5-ad76-824d7e14806e" />
+<img width="1467" height="838" alt="image" src="https://github.com/user-attachments/assets/89ca3128-0ba1-494d-8a13-542e06ba3c86" />
+
 
 
 BOM
