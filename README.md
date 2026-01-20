@@ -16,6 +16,17 @@ The fingerprint sensor has a
 <img width="1467" height="838" alt="image" src="https://github.com/user-attachments/assets/89ca3128-0ba1-494d-8a13-542e06ba3c86" />
 
 
+### Authentication Accuracy & Error Rates
+
+| Input Method | False Acceptance Rate (FAR) | False Rejection Rate (FRR) | Notes |
+|-------------|-----------------------------|-----------------------------|-------|
+| Fingerprint (Capacitive) | ~0.001% – 0.01% | ~1% – 3% | High accuracy, may fail with wet or damaged fingers |
+| Face Recognition (Offline AI) | ~0.1% – 1% | ~1% – 5% | Affected by lighting, pose, and occlusion |
+| Palm Recognition (Offline AI) | ~0.01% – 0.1% | ~0.5% – 2% | Very stable, less affected by lighting |
+| Keypad PIN (4-digit) | 0% (if secret) | User-dependent | Security depends on PIN secrecy and length |
+
+
+
 
 BOM
 
