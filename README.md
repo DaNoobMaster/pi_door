@@ -19,9 +19,6 @@ The fingerprint sensor has a
 
 | Subsystem | Device Pin / Signal | Connected To | Raspberry Pi Pin | GPIO / Voltage | Notes |
 |----------|---------------------|--------------|------------------|----------------|-------|
-| **Controller** | 3.3V | Power Rail | Pin 1 | 3.3V | Logic power |
-| Controller | 5V | Power Rail | Pin 4 | 5V | Camera + relay |
-| Controller | GND | Common Ground | Pin 6 | GND | Shared ground |
 | **AI Camera (Face / Palm)** | VCC | Pi 5V | Pin 4 | 5V | Camera power |
 | AI Camera | GND | Pi GND | Pin 6 | GND | Common ground |
 | AI Camera | UART_TX | Pi RX | Pin 10 | GPIO15 (RXD) | Camera → Pi |
@@ -41,12 +38,11 @@ The fingerprint sensor has a
 | Keypad | K7 (Col 3) | Pi GPIO | Pin 40 | GPIO21 | Input (PU) |
 | Keypad | K8 | — | — | NC | Not connected |
 | Keypad | K9 | — | — | NC | Not connected |
-| **Relay Control** | Relay IN | Pi GPIO | Pin 16 | GPIO23 | Control signal |
 | Relay | Relay VCC | Pi 5V | Pin 4 | 5V | Coil power |
 | Relay | Relay GND | Pi GND | Pin 6 | GND | Ground |
 | **Transistor (BC107)** | Base | Pi GPIO (via resistor) | Pin 16 | GPIO23 | Drives relay |
-| Transistor | Collector | Relay Coil | — | — | Load side |
-| Transistor | Emitter | Ground | — | GND | Reference |
+| Transistor | Collector | 5V | — | 5V | From voltage convertor |
+| Transistor | Emitter | Relay Coil | — | — | Reference |
 | **Solenoid Lock** | + | External Supply | — | +7.5V | Lock power |
 | Solenoid | − | Relay NO Contact | — | Switched | Controlled by relay |
 
