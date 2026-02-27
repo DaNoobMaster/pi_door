@@ -9,13 +9,14 @@ The aim of this project is to make entering my house quicker and more reliable. 
 The 4x3 keypad can be used to enter in a pincode.
 The pincode can be set to be however long.
 Pressing # enters the code while * resets it. If no user input is present for 10 seconds, the code entry cache resets. If the door unlocks using other means, the code entry cache resets.
-The fingerprint sensor has a 
 
 
 
-<img width="1467" height="838" alt="image" src="https://github.com/user-attachments/assets/89ca3128-0ba1-494d-8a13-542e06ba3c86" />
+<img width="751" height="537" alt="image" src="https://github.com/user-attachments/assets/d53023cb-ecab-434a-938b-1549a81f35ff" />
+<img width="667" height="529" alt="image" src="https://github.com/user-attachments/assets/b1f51f14-8211-4b2e-a3e8-2645d55d5d1d" />
 
-### Complete Hardware Wiring (As per Schematic)
+
+### Complete Hardware Wiring
 
 | Subsystem | Device Pin / Signal | Connected To | Raspberry Pi Pin | GPIO / Voltage | Notes |
 |----------|---------------------|--------------|------------------|----------------|-------|
@@ -79,6 +80,9 @@ BOM
 | 13 | 3D Printed Parts | Enclosure & mounting brackets | — |
 | 14 | Acrylic Sheet | Structural housing panels | 75.00 |
 | 15 | SRD-05VDC-SL-A Relay | Solenoid isolation & control | 79.00 |
-| **—** | **Total Estimated Cost** |  | **11,068.42** |
+| 16 | XL6009 | Boost converter | 50.00 |
+| 17 | LM2596 | Buck converter | 44.00 |
+| 17 | PCB | - | 222 |
+| **—** | **Total Estimated Cost** |  | **11,744.32** |
 
 
